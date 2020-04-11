@@ -1,4 +1,4 @@
-// test.js
+// module test.js
 import {gen_code , display} from '../js/code_generator';
 
 if(
