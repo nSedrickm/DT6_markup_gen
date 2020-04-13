@@ -1,30 +1,30 @@
 // module code_generator.js
 console.log("generator.js loaded");
 
-let tag = document.getElementById("tag").value;
-let id = document.getElementById("id").value;
-let css_class= document.getElementById("class").value;
-let message=document.getElementById("text").value;
-let output = document.getElementById("output");
 
-console.log(tag , id, css_class, message);
+var tag = null,
+    id=null ,
+    css_class=null,
+    message=null;
 
-let button = document.getElementById("button").addEventListener("click", display);
+function get_values() {
+tag = document.getElementById("tag").value;
+id = document.getElementById("id").value;
+css_class= document.getElementById("class").value;
+message=document.getElementById("text").value;
+}
+
+var output = document.getElementById("output");
+var button = document.getElementById("button").addEventListener("click", display);
 
 function gen_code(tag, id, css_class, message) {
-
-let result =  "<" + tag + " id='" + id + "'" + " class='" + css_class + "'" +">" + message + "</" + tag + ">" ;
-
-console.log(result);
-
+var result =  "<" + tag + " id='" + id + "'" + " class='" + css_class + "'" +">" + message + "</" + tag + ">" ;
 return result;
-
 }
 
 function display() {
-    console.log("button clicked");
-    console.log("tag :" + tag , "id :" + id , "class :" + css_class, "message :" +  message);
+    get_values();
     output.textContent = gen_code(tag,id,css_class,message);
-    }
+}
 
 
