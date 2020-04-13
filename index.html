@@ -1,37 +1,74 @@
 <!DOCTYPE html>
+
 <head>
     <title>Generator</title>
-<style>
-   body {
-       text-align:center;
-       padding:50px
-   }
-</style>
+    <style>
+        body {
+            padding: 50px
+        }
+
+        form {
+            margin: 25px 0;
+        }
+
+        form input {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .div-one {
+            float: left;
+            width: 50%;
+        }
+
+        .div-two {
+            float: right;
+            width: 50%;
+
+        }
+
+        code {
+            display: block;
+            width: 400px;
+            height: 200px;
+            padding: 25px;
+            background-color: black;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-<h1>Generate components</h1>
+    <h1>Generate components</h1>
 
-<form>
-<label for="tag">tag</label>
-<input type="text" id="tag" value="h1">
+    <div class="div-one">
 
-<label for="tag">id</label>
-<input type="text" id="id" value ="main_header">
+        <form>
+            <label for="tag">tag</label>
+            <input type="text" id="tag" value="h1">
 
-<label for="tag">class</label>
-<input type="text" id="class" value="h1_class">
+            <label for="tag">id</label>
+            <input type="text" id="id" value="main_header">
 
-<label for="tag">text</label>
-<input type="text" id="text" value="Welcome">
+            <label for="tag">class</label>
+            <input type="text" id="class" value="h1_class">
 
-</form>
+            <label for="tag">text</label>
+            <input type="text" id="text" value="Welcome">
 
-<button id="button">get markup</button>
+        </form>
 
-<code id="output"></code>
+        <button id="button">get markup</button>
 
-<script src="js/code_generator.js"></script>
-<script src="test/test.js"></script>
+    </div>
+
+    <div class="div-two">
+        <h3>Code</h3>
+        <code id="output"></code>
+    </div>
+
+    <script src="js/code_generator.js"></script>
+    <script src="test/test.js"></script>
 </body>
+
 </html>
