@@ -24,9 +24,29 @@ if (
   console.log("function: gen_code() -> test:fail");
 }
 
-//test display()
+//test gen_input()
+var test_label = "sample",
+  test_input_id = "samp_id",
+  test_input_type = "text",
+  test_input_class = "samp_class";
+if (
+  gen_input(test_label, test_input_type, test_input_id, test_input_class) ==
+  "<label for='samp_id'>sample</label><input type='text'id='samp_id'class='samp_class'>"
+) {
+  console.log("function: gen_input() -> test:pass");
+} else {
+  console.log("function: gen_input() -> test:fail");
+}
 if (get_values() && gen_code(test_tag, test_id, test_class, message)) {
+  //test display()
   console.log("function: display() -> test:pass");
 } else {
   console.log("function: display() -> test:fail");
+}
+
+//test display_input()
+if (get_values() && gen_code(label, input_type, input_id, input_class)) {
+  console.log("function: display_input() -> test:pass");
+} else {
+  console.log("function: display_input() -> test:fail");
 }
