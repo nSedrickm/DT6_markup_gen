@@ -1,4 +1,4 @@
-// module code_generator.js
+//code_generator.js
 console.log("generator.js loaded");
 
 var tag = null,
@@ -8,7 +8,8 @@ var tag = null,
   label = null,
   input_type = null,
   input_id = null,
-  input_class = null;
+  input_class = null,
+  input_value = null;
 
 function get_values() {
   tag = document.getElementById("tag").value;
@@ -19,6 +20,7 @@ function get_values() {
   input_type = document.getElementById("input_type").value;
   input_id = document.getElementById("input_id").value;
   input_class = document.getElementById("input_class").value;
+  input_value = document.getElementById("input_value").value;
 }
 
 var output = document.getElementById("output");
@@ -49,14 +51,14 @@ function gen_code(tag, id, css_class, message) {
   return result;
 }
 
-function gen_input(label, input_type, input_id, input_class) {
+function gen_input(label, input_type, input_id, input_class, input_value) {
 
 
-  var label = "<label for='"+input_id +"'"+">"+label+"</label>";
+  var label = "<label for='" + input_id + "'" + ">" + label + "</label>";
 
-  var input = "\n"+"<input type='"+input_type +"'"+"id='"+input_id+"'"+"class='"+input_class+"'"+">";
+  var input = "\n" + "<input type='" + input_type + "'" + "id='" + input_id + "'" + "value='" + input_value + "'" + ">";
 
-    return label  +  input;
+  return label + input;
 }
 
 function display() {
@@ -66,7 +68,7 @@ function display() {
 
 function display_input() {
   get_values();
-  output_2.textContent = gen_input(label, input_type, input_id, input_class);
+  output_2.textContent = gen_input(label, input_type, input_id, input_class, input_value);
 }
 
 //tooltip
@@ -80,7 +82,7 @@ document.querySelector('#clip-1').addEventListener('click', () => {
       tooltip_1.innerHTML = "Copied";
     })
     .then(() => {
-       setTimeout(function () {tooltip_1.innerHTML="Copy"}, 2000);
+      setTimeout(function () { tooltip_1.innerHTML = "Copy" }, 2000);
     })
     .catch(() => {
       console.log('Failed to copy text from output.');
@@ -95,8 +97,8 @@ document.querySelector('#clip-2').addEventListener('click', () => {
       tooltip_2.innerHTML = "Copied";
     })
     .then(() => {
-      setTimeout(function () {tooltip_2.innerHTML="Copy"}, 2000);
-   })
+      setTimeout(function () { tooltip_2.innerHTML = "Copy" }, 2000);
+    })
     .catch(() => {
       console.log('Failed to copy text from output-2');
     });

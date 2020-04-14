@@ -29,9 +29,11 @@ var test_label = "sample",
   test_input_id = "samp_id",
   test_input_type = "text",
   test_input_class = "samp_class";
+  test_value = "high";
 if (
-  gen_input(test_label, test_input_type, test_input_id, test_input_class) ==
-  "<label for='samp_id'>sample</label><input type='text'id='samp_id'class='samp_class'>"
+  gen_input(test_label, test_input_type, test_input_id, test_input_class,test_value) ==
+  `<label for='samp_id'>sample</label>
+   <input type='text'id='samp_id'value='high'>`
 ) {
   console.log("function: gen_input() -> test:pass");
 } else {
@@ -45,7 +47,7 @@ if (get_values() && gen_code(test_tag, test_id, test_class, message)) {
 }
 
 //test display_input()
-if (get_values() && gen_code(label, input_type, input_id, input_class)) {
+if (get_values() && gen_code(label, input_type, input_id, input_class, input_value)) {
   console.log("function: display_input() -> test:pass");
 } else {
   console.log("function: display_input() -> test:fail");
