@@ -50,28 +50,13 @@ function gen_code(tag, id, css_class, message) {
 }
 
 function gen_input(label, input_type, input_id, input_class) {
-  let result =
-    "<label for='" +
-    input_id +
-    "'" +
-    ">" +
-    label +
-    "</label>" +
-    "\n" +
-    "<input type='" +
-    input_type +
-    "'" +
-    "id='" +
-    input_id +
-    "'" +
-    "class='" +
-    input_class +
-    "'" +
-    ">";
 
-  console.log("gen_input() :" + result);
 
-  return result;
+  var label = "<label for='"+input_id +"'"+">"+label+"</label>";
+
+  var input = "\n"+"<input type='"+input_type +"'"+"id='"+input_id+"'"+"class='"+input_class+"'"+">";
+
+    return label  +  input;
 }
 
 function display() {
@@ -83,3 +68,27 @@ function display_input() {
   get_values();
   output_2.textContent = gen_input(label, input_type, input_id, input_class);
 }
+
+// copy output to clipboard
+document.querySelector('#clip-1').addEventListener('click', () => {
+  navigator.clipboard.writeText(document.querySelector('#output').textContent)
+    .then(() => {
+      console.log('Text copied.');
+    })
+    .catch(() => {
+      console.log('Failed to copy text.');
+    });
+});
+
+
+// copy output-2 to clipboard
+document.querySelector('#clip-2').addEventListener('click', () => {
+  navigator.clipboard.writeText(document.querySelector('#output-2').textContent)
+    .then(() => {
+      console.log('Text copied.');
+    })
+    .catch(() => {
+      console.log('Failed to copy text.');
+    });
+});
+
