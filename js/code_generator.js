@@ -69,14 +69,18 @@ function display_input() {
   output_2.textContent = gen_input(label, input_type, input_id, input_class);
 }
 
+//tooltip
+var tooltip_1 = document.getElementById("tooltip_1");
+var tooltip_2 = document.getElementById("tooltip_2");
+
 // copy output to clipboard
 document.querySelector('#clip-1').addEventListener('click', () => {
   navigator.clipboard.writeText(document.querySelector('#output').textContent)
     .then(() => {
-      console.log('Text copied.');
+      tooltip_1.innerHTML = "Copied";
     })
     .catch(() => {
-      console.log('Failed to copy text.');
+      console.log('Failed to copy text from output.');
     });
 });
 
@@ -85,10 +89,10 @@ document.querySelector('#clip-1').addEventListener('click', () => {
 document.querySelector('#clip-2').addEventListener('click', () => {
   navigator.clipboard.writeText(document.querySelector('#output-2').textContent)
     .then(() => {
-      console.log('Text copied.');
+      tooltip_2.innerHTML = "Copied";
     })
     .catch(() => {
-      console.log('Failed to copy text.');
+      console.log('Failed to copy text from output-2');
     });
 });
 
