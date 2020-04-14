@@ -79,6 +79,9 @@ document.querySelector('#clip-1').addEventListener('click', () => {
     .then(() => {
       tooltip_1.innerHTML = "Copied";
     })
+    .then(() => {
+       setTimeout(function () {tooltip_1.innerHTML="Copy"}, 2000);
+    })
     .catch(() => {
       console.log('Failed to copy text from output.');
     });
@@ -91,6 +94,9 @@ document.querySelector('#clip-2').addEventListener('click', () => {
     .then(() => {
       tooltip_2.innerHTML = "Copied";
     })
+    .then(() => {
+      setTimeout(function () {tooltip_2.innerHTML="Copy"}, 2000);
+   })
     .catch(() => {
       console.log('Failed to copy text from output-2');
     });
