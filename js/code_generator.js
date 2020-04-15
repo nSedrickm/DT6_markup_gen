@@ -9,7 +9,8 @@ var tag = null,
   input_type = null,
   input_id = null,
   input_class = null,
-  input_value = null;
+  input_value = null,
+  input_name = null;
 
 function get_values() {
   tag = document.getElementById("tag").value;
@@ -21,6 +22,7 @@ function get_values() {
   input_id = document.getElementById("input_id").value;
   input_class = document.getElementById("input_class").value;
   input_value = document.getElementById("input_value").value;
+  input_name = document.getElementById("input_name").value;
 }
 
 var output = document.getElementById("output");
@@ -51,12 +53,12 @@ function gen_code(tag, id, css_class, message) {
   return result;
 }
 
-function gen_input(label, input_type, input_id, input_class, input_value) {
+function gen_input(label, input_type, input_id, input_class, input_name, input_value ) {
 
 
   var label = "<label for='" + input_id + "'" + ">" + label + "</label>";
 
-  var input = "\n" + "<input type='" + input_type + "'" + "id='" + input_id + "'" + "value='" + input_value + "'" + ">";
+  var input = "\n" + "<input type='" + input_type + "'" + "id='" + input_id + "'" + "name='"+ input_name + "'" + "value='" + input_value + "'" + ">";
 
   return label + input;
 }
@@ -68,7 +70,7 @@ function display() {
 
 function display_input() {
   get_values();
-  output_2.textContent = gen_input(label, input_type, input_id, input_class, input_value);
+  output_2.textContent = gen_input(label, input_type, input_id, input_class, input_name, input_value);
 }
 
 //tooltip
